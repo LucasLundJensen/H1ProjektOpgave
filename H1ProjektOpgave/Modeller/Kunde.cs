@@ -68,6 +68,7 @@ namespace H1ProjektOpgave
                 bilData = bilData + "\nBilID: " + nyBil.BilID + "\nRegisterings Nummer: " + nyBil.RegNR + "\nMærke: " + nyBil.Maerke + "\nÅrgang: " + nyBil.Aargang + "\nKilometer Kørt: " + nyBil.Km + "\nBrændstofs Type: " + nyBil.BrandStofType + "\n";
             }
             return userProperties + "\n" + bilData;
+            Console.WriteLine("Test");
         }
     }
 }
