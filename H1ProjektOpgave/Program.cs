@@ -12,8 +12,6 @@ namespace H1ProjektOpgave
         {
             //Skaber connection til databasen.
 
-            Console.WriteLine(Kunde.Overview(1));
-
             Console.ReadKey();
         }
     }
