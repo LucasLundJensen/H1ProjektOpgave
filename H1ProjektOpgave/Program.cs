@@ -11,10 +11,7 @@ namespace H1ProjektOpgave
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Du har nu følgende muligheder: \n");
-            Console.WriteLine("");
-
-            Console.ReadKey();
+            MainMenu.SpawnMenu();
         }
     }
 }

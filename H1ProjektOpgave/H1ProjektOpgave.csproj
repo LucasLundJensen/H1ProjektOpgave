@@ -43,8 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\DBController.cs" />
+    <Compile Include="Menus\BilMenu.cs" />
+    <Compile Include="Menus\VærkstedsMenu.cs" />
     <Compile Include="Modeller\Biler.cs" />
     <Compile Include="Modeller\Kunde.cs" />
+    <Compile Include="Menus\KundeMenu.cs" />
+    <Compile Include="Menus\MainMenu.cs" />
     <Compile Include="Modeller\Service.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
