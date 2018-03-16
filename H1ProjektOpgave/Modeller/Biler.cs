@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace H1ProjektOpgave.Modeller
 {
-    public class Biler
+    class Biler
     {
         private int regNR;
 
@@ -56,6 +57,63 @@ namespace H1ProjektOpgave.Modeller
             set { bilID = value; }
         }
 
-        
+        public static string Create(int RegNr, string Maerke, string Aargang, int Km, string Brandstofstype, int KundeID = 0)
+        {
+            DateTime BilOprettelsesDato = DateTime.Now;
+            string Creation = ("INSERT INTO Biler(RegNr, Mærke, Modelårgang, Kmkørt, Brændstofstype, EjesAf_fk, BilOprettelsesDato) " + "Values('" + RegNr + "', '" + Maerke + "', '" + Aargang + "', '" + Km + "', '" + Brandstofstype + "', '" + KundeID + "', '" + BilOprettelsesDato + "');");
+            try
+            {
+                DBController.CRUD(Creation);
+                return Convert.ToString("Bil " + RegNr + " er nu oprettet.");
+            }
+            catch (Exception e)
+            {
+                return Convert.ToString("Error: " + e);
+            }
+        }
+
+        public static string Delete(int BilID)
+        {
+            string Deletion = "DELETE FROM Biler WHERE BilID=";
+            string CarLookup = "select * from Biler WHERE BilID=";
+            DataTable bilDataTabel = DBController.Select(CarLookup + BilID);
+            try
+            {
+                DBController.CRUD(Deletion + BilID);
+                return Convert.ToString("Bil " + bilDataTabel.Rows[0]["RegNr"].ToString() + " er nu slettet.");
+
+            }
+            catch (Exception)
+            {
+                return Convert.ToString("Bilen blev ikke fundet");
+            }
+        }
+
+        public static void Update(int BilID)
+        {
+            //to be made
+        }
+
+        public static string ShowCar(int BilID)
+        {
+            string Selection = "select * from Biler WHERE BilID=";
+            string bilData = string.Empty;
+            DataTable bilDataTable = DBController.Select(Selection + BilID);
+            for (int i = 0; i < bilDataTable.Rows.Count; i++)
+            {
+                Modeller.Biler nyBil = new Modeller.Biler()
+                {
+                    BilID = Convert.ToInt32(bilDataTable.Rows[i]["BilID"]),
+                    RegNR = Convert.ToInt32(bilDataTable.Rows[i]["RegNr"]),
+                    Maerke = bilDataTable.Rows[i]["Mærke"].ToString(),
+                    Aargang = bilDataTable.Rows[i]["ModelÅrgang"].ToString(),
+                    Km = Convert.ToInt32(bilDataTable.Rows[i]["KmKørt"]),
+                    BrandStofType = bilDataTable.Rows[i]["Brændstofstype"].ToString(),
+
+                };
+                bilData = bilData + "BilID: " + nyBil.BilID + "\nRegisterings Nummer: " + nyBil.RegNR + "\nMærke: " + nyBil.Maerke + "\nÅrgang: " + nyBil.Aargang + "\nKilometer Kørt: " + nyBil.Km + "\nBrændstofs Type: " + nyBil.BrandStofType + "\n";
+            }
+            return bilData;
+        }
     }
 }

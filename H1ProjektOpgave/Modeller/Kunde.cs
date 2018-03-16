@@ -103,7 +103,7 @@ namespace H1ProjektOpgave
                     BrandStofType = KundeDataTable.Rows[i]["Brændstofstype"].ToString(),
 
                 };
-                bilData = bilData + "\nBilID: " + nyBil.BilID + "\nRegisterings Nummer: " + nyBil.RegNR + "\nMærke: " + nyBil.Maerke + "\nÅrgang: " + nyBil.Aargang + "\nKilometer Kørt: " + nyBil.Km + "\nBrændstofs Type: " + nyBil.BrandStofType + "\n";
+                bilData = bilData + "BilID: " + nyBil.BilID + "\nRegisterings Nummer: " + nyBil.RegNR + "\nMærke: " + nyBil.Maerke + "\nÅrgang: " + nyBil.Aargang + "\nKilometer Kørt: " + nyBil.Km + "\nBrændstofs Type: " + nyBil.BrandStofType + "\n";
             }
             return userProperties + "\n" + bilData;
         }
@@ -156,8 +156,7 @@ namespace H1ProjektOpgave
             }
             else
             {
-                return Convert.ToString(false);
-
+                return Convert.ToString("Der er ikke skrevet en gyldig valgmulighed ind");
             }
         }
     }

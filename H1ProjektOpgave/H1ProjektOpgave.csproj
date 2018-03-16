@@ -45,6 +45,7 @@
     <Compile Include="Database\DBController.cs" />
     <Compile Include="Modeller\Biler.cs" />
     <Compile Include="Modeller\Kunde.cs" />
+    <Compile Include="Modeller\Service.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
