@@ -11,17 +11,8 @@ namespace H1ProjektOpgave
     {
         static void Main(string[] args)
         {
-            //Skaber connection til databasen.
-
-            //Console.WriteLine(Kunde.Create("Lucas", "Lund Jensen", "lucas.lund@live.dk"));
-
-            //Console.WriteLine(Biler.Create(87654321, "BMW", "2015", 510515, "Diesel", 2));
-
-            //Console.WriteLine(Service.Create(3, "2014-04-20"));
-
-            //Console.WriteLine(Service.Delete(2));
-
-            Console.WriteLine(Service.ShowOphold(1);
+            Console.WriteLine("Du har nu følgende muligheder: \n");
+            Console.WriteLine("");
 
             Console.ReadKey();
         }

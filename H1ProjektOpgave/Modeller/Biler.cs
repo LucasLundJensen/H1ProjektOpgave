@@ -89,9 +89,90 @@ namespace H1ProjektOpgave.Modeller
             }
         }
 
-        public static void Update(int BilID)
+        public static string Update(int BilID, string option, string value)
         {
-            //to be made
+            if (option == "regnr")
+            {
+                string regnr = "UPDATE Biler SET RegNr=";
+                try
+                {
+                    DBController.CRUD(regnr + Convert.ToInt32(value) + " WHERE BilID=" + BilID);
+                    return BilID + " er opdateret med registerings nummeret: " + value;
+                }
+                catch (Exception)
+                {
+                    return "Der skete en fejl, det kunne være forkert input";
+                }
+            }
+            else if (option == "maerke")
+            {
+                string maerke = "UPDATE Biler SET Mærke=";
+                try
+                {
+                    DBController.CRUD(maerke + "'" + value + "'" + " WHERE BilID=" + BilID);
+                    return BilID + " er opdateret med mærket til: " + value;
+                }
+                catch (Exception)
+                {
+                    return "Der skete en fejl, det kunne være forkert input";
+                }
+            }
+            else if (option == "aargang")
+            {
+                string aargang = "UPDATE Biler SET ModelÅrgang=";
+                try
+                {
+                    DBController.CRUD(aargang + value + " WHERE BilID=" + BilID);
+                    return BilID + " har fået opdateret sin årgang til: " + value;
+                }
+                catch (Exception)
+                {
+                    return "Der skete en fejl, det kunne være forkert input";
+                }
+            }
+            else if (option == "km")
+            {
+                string km = "UPDATE Biler SET KmKørt=";
+                try
+                {
+                    DBController.CRUD(km + Convert.ToInt32(value) + " WHERE BilID=" + BilID);
+                    return BilID + " har fået opdateret sin kilometer kørt til: " + value;
+                }
+                catch (Exception)
+                {
+                    return "Der skete en fejl, det kunne være forkert input";
+                }
+            }
+            else if (option == "brandstofstype")
+            {
+                string brandstofstype = "UPDATE Biler SET KmKørt=";
+                try
+                {
+                    DBController.CRUD(brandstofstype + value + " WHERE BilID=" + BilID);
+                    return BilID + " har fået opdateret sin brændstofstype til: " + value;
+                }
+                catch (Exception)
+                {
+                    return "Der skete en fejl, det kunne være forkert input";
+                }
+            }
+            else if (option == "ejesaf")
+            {
+                string ejesaf = "UPDATE Biler SET EjesAf_fk=";
+                try
+                {
+                    DBController.CRUD(ejesaf + Convert.ToInt32(value) + " WHERE BilID=" + BilID);
+                    return BilID + " har fået opdateret sin ejer til: " + value;
+                }
+                catch (Exception)
+                {
+                    return "Der skete en fejl, det kunne være forkert input";
+                }
+            }
+            else
+            {
+                return "Ikke gyldig muliged!";
+            }
         }
 
         public static string ShowCar(int BilID)
