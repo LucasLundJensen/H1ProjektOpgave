@@ -11,6 +11,7 @@ namespace H1ProjektOpgave.Modeller
     {
         public static void SpawnMenu()
         {
+            Console.Clear();
             Console.WriteLine("Du har nu følgende muligheder: \n");
             Console.WriteLine("1. Kunde Menu \n2. Bil Menu \n3. Værksteds Menu ");
 
@@ -34,6 +35,13 @@ namespace H1ProjektOpgave.Modeller
                 SpawnMenu();
             }
 
+        }
+
+        public static void ReturnMenu()
+        {
+            Console.WriteLine("Tryk på en tast for at fortsætte");
+            Console.ReadKey();
+            SpawnMenu();
         }
     }
 }

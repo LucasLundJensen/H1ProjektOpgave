@@ -10,7 +10,7 @@ namespace H1ProjektOpgave.Menus
     {
         public static void SpawnMenu()
         {
-           Console.Clear(); 
+           Console.Clear();
         }
     }
 }

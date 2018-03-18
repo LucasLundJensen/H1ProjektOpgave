@@ -87,8 +87,6 @@ namespace H1ProjektOpgave
         {
             string UserLookup = "SELECT * from Kunde, Biler WHERE KundeID = EjesAf_fk AND KundeID=";
             DataTable KundeDataTable = DBController.Select(UserLookup + KundeID);
-
-            //return Convert.ToString("");
             string userProperties = "Kundeoplysninger: \nNavn: " + KundeDataTable.Rows[0]["Fornavn"].ToString() + " " + KundeDataTable.Rows[0]["Efternavn"].ToString() + "\nID: " + KundeDataTable.Rows[0]["KundeID"].ToString() + "\nEmail: " + KundeDataTable.Rows[0]["Email"].ToString() + "\nOprettelses Dato: " + KundeDataTable.Rows[0]["KundeOprettelsesdato"].ToString();
             string bilData = string.Empty;
             for (int i = 0; i < KundeDataTable.Rows.Count; i++)
