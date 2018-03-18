@@ -43,7 +43,7 @@ namespace H1ProjektOpgave.Menus
                         kundeid = "1";
                     }
 
-                    Biler.Create(Convert.ToInt32(regNr), maerke, aargang, Convert.ToInt32(km), brandstofstype, Convert.ToInt32(kundeid));
+                    Console.WriteLine(Biler.Create(Convert.ToInt32(regNr), maerke, aargang, Convert.ToInt32(km), brandstofstype, Convert.ToInt32(kundeid)));
                     MainMenu.ReturnMenu();
 
                 }
@@ -60,7 +60,7 @@ namespace H1ProjektOpgave.Menus
 
                 try
                 {
-                    Biler.ShowCar(Convert.ToInt32(bilid));
+                    Console.WriteLine(Biler.ShowCar(Convert.ToInt32(bilid)));
                     MainMenu.ReturnMenu();
                 }
                 catch (Exception )
@@ -76,7 +76,8 @@ namespace H1ProjektOpgave.Menus
 
                 try
                 {
-                    Biler.Delete(Convert.ToInt32(bilid));
+                    Console.WriteLine(Biler.Delete(Convert.ToInt32(bilid)));
+                    MainMenu.ReturnMenu();
                 }
                 catch (Exception )
                 {
@@ -100,7 +101,7 @@ namespace H1ProjektOpgave.Menus
                     string input = Console.ReadLine();
                     try
                     {
-                        Biler.Update(Convert.ToInt32(bilid), bilOption, input);
+                        Console.WriteLine(Biler.Update(Convert.ToInt32(bilid), bilOption, input));
                         MainMenu.ReturnMenu();
                     }
                     catch (Exception)
@@ -117,7 +118,7 @@ namespace H1ProjektOpgave.Menus
                     string input = Console.ReadLine();
                     try
                     {
-                        Biler.Update(Convert.ToInt32(bilid), bilOption, input);
+                        Console.WriteLine(Biler.Update(Convert.ToInt32(bilid), bilOption, input));
                         MainMenu.ReturnMenu();
                     }
                     catch (Exception)
@@ -134,7 +135,7 @@ namespace H1ProjektOpgave.Menus
                     string input = Console.ReadLine();
                     try
                     {
-                        Biler.Update(Convert.ToInt32(bilid), bilOption, input);
+                        Console.WriteLine(Biler.Update(Convert.ToInt32(bilid), bilOption, input));
                         MainMenu.ReturnMenu();
                     }
                     catch (Exception)
@@ -150,7 +151,7 @@ namespace H1ProjektOpgave.Menus
                     string input = Console.ReadLine();
                     try
                     {
-                        Biler.Update(Convert.ToInt32(bilid), bilOption, input);
+                        Console.WriteLine(Biler.Update(Convert.ToInt32(bilid), bilOption, input));
                         MainMenu.ReturnMenu();
                     }
                     catch (Exception)
@@ -166,7 +167,7 @@ namespace H1ProjektOpgave.Menus
                     string input = Console.ReadLine();
                     try
                     {
-                        Biler.Update(Convert.ToInt32(bilid), bilOption, input);
+                        Console.WriteLine(Biler.Update(Convert.ToInt32(bilid), bilOption, input));
                         MainMenu.ReturnMenu();
                     }
                     catch (Exception)
@@ -182,7 +183,7 @@ namespace H1ProjektOpgave.Menus
                     string input = Console.ReadLine();
                     try
                     {
-                        Biler.Update(Convert.ToInt32(bilid), bilOption, input);
+                        Console.WriteLine(Biler.Update(Convert.ToInt32(bilid), bilOption, input));
                         MainMenu.ReturnMenu();
                     }
                     catch (Exception)
