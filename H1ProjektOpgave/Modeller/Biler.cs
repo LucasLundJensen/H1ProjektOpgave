@@ -91,7 +91,7 @@ namespace H1ProjektOpgave.Modeller
 
         public static string Update(int BilID, string option, string value)
         {
-            if (option == "regnr")
+            if (option == "1")
             {
                 string regnr = "UPDATE Biler SET RegNr=";
                 try
@@ -104,7 +104,7 @@ namespace H1ProjektOpgave.Modeller
                     return "Der skete en fejl, det kunne være forkert input";
                 }
             }
-            else if (option == "maerke")
+            else if (option == "2")
             {
                 string maerke = "UPDATE Biler SET Mærke=";
                 try
@@ -117,7 +117,7 @@ namespace H1ProjektOpgave.Modeller
                     return "Der skete en fejl, det kunne være forkert input";
                 }
             }
-            else if (option == "aargang")
+            else if (option == "3")
             {
                 string aargang = "UPDATE Biler SET ModelÅrgang=";
                 try
@@ -130,7 +130,7 @@ namespace H1ProjektOpgave.Modeller
                     return "Der skete en fejl, det kunne være forkert input";
                 }
             }
-            else if (option == "km")
+            else if (option == "4")
             {
                 string km = "UPDATE Biler SET KmKørt=";
                 try
@@ -143,9 +143,9 @@ namespace H1ProjektOpgave.Modeller
                     return "Der skete en fejl, det kunne være forkert input";
                 }
             }
-            else if (option == "brandstofstype")
+            else if (option == "5")
             {
-                string brandstofstype = "UPDATE Biler SET KmKørt=";
+                string brandstofstype = "UPDATE Biler SET Brændstofstype=";
                 try
                 {
                     DBController.CRUD(brandstofstype + value + " WHERE BilID=" + BilID);
@@ -156,7 +156,7 @@ namespace H1ProjektOpgave.Modeller
                     return "Der skete en fejl, det kunne være forkert input";
                 }
             }
-            else if (option == "ejesaf")
+            else if (option == "6")
             {
                 string ejesaf = "UPDATE Biler SET EjesAf_fk=";
                 try
