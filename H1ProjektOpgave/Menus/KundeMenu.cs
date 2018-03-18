@@ -12,7 +12,7 @@ namespace H1ProjektOpgave.Modeller
         {
             Console.Clear();
             Console.WriteLine("Du har nu følgende muligheder: \n");
-            Console.WriteLine("1. Opret Kunde \n2. Vis Kunde \n3. Slet Kunde ");
+            Console.WriteLine("1. Opret Kunde \n2. Vis Kunde (Virker kun hvis de har en bil) \n3. Slet Kunde \n4. Kundeoversigt ");
             string option = Console.ReadLine();
 
             if (option == "1")

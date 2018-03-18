@@ -74,7 +74,7 @@ namespace H1ProjektOpgave
             try
             {
                 DBController.CRUD(Deletion + KundeID);
-                return Convert.ToString("Kunde " + KundeDataTable.Rows[0]["Navn"].ToString() + " er nu slettet.");
+                return Convert.ToString("Kunde " + KundeDataTable.Rows[0]["Fornavn"].ToString() + " " + KundeDataTable.Rows[0]["Efternavn"].ToString() + " er nu slettet.");
 
             }
             catch (Exception)

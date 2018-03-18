@@ -194,7 +194,15 @@ namespace H1ProjektOpgave.Modeller
                 };
                 bilData = bilData + "BilID: " + nyBil.BilID + "\nRegisterings Nummer: " + nyBil.RegNR + "\nMærke: " + nyBil.Maerke + "\nÅrgang: " + nyBil.Aargang + "\nKilometer Kørt: " + nyBil.Km + "\nBrændstofs Type: " + nyBil.BrandStofType + "\n";
             }
-            return bilData;
+            if (string.IsNullOrEmpty(bilData))
+            {
+                return "Bil blev ikke fundet";
+            }
+            else
+            {
+                return bilData;
+            }
+
         }
     }
 }
