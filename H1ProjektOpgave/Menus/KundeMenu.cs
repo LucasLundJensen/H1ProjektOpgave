@@ -26,8 +26,16 @@ namespace H1ProjektOpgave.Modeller
                 Console.Write("Email: ");
                 string email = Console.ReadLine();
 
-                Console.WriteLine(Kunde.Create(fornavn, efternavn, email));
-                MainMenu.ReturnMenu();
+                if (string.IsNullOrEmpty(fornavn) || string.IsNullOrEmpty(efternavn) || string.IsNullOrEmpty(email))
+                {
+                    Console.WriteLine("Fejl i input, prøv igen.");
+                    MainMenu.ReturnMenu();
+                }
+                else
+                {
+                    Console.WriteLine(Kunde.Create(fornavn, efternavn, email));
+                    MainMenu.ReturnMenu();
+                }
             }
             else if (option == "2")
             {
@@ -81,6 +89,10 @@ namespace H1ProjektOpgave.Modeller
                     Console.WriteLine("Ikke en gyldig valgmulighed");
                     MainMenu.ReturnMenu();
                 }
+            }
+            else
+            {
+                MainMenu.ReturnMenu();
             }
         }
     }

@@ -108,7 +108,7 @@ namespace H1ProjektOpgave
 
         public static string KundeOversigt(string Option)
         {
-            string sqlKunde = "SELECT * FROM Kunde;";
+            string sqlKunde = "SELECT * FROM Kunde ORDER BY Kunde.Efternavn DESC;";
             string sqlBil = "SELECT * FROM Biler;";
             if (Option == "Kundeoversigt")
             {

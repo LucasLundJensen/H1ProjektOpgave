@@ -176,7 +176,7 @@ namespace H1ProjektOpgave.Menus
                         MainMenu.ReturnMenu();
                     }
                 }
-                if (bilOption == "6")
+                else if (bilOption == "6")
                 {
 
                     Console.Write("Nye Ejer: ");
@@ -192,6 +192,14 @@ namespace H1ProjektOpgave.Menus
                         MainMenu.ReturnMenu();
                     }
                 }
+                else
+                {
+                    MainMenu.ReturnMenu();
+                }
+            }
+            else
+            {
+                MainMenu.ReturnMenu();
             }
         }
     }

@@ -67,9 +67,38 @@ namespace H1ProjektOpgave.Modeller
             }
         }
 
-        public static void Update(int BilID)
+        public static string Update(int OpholdID, string option, string value)
         {
-            //to be made
+            if (option == "1")
+            {
+                string sql = "UPDATE Værkstedsophold SET BilID_fk=";
+                try
+                {
+                    DBController.CRUD(sql + Convert.ToInt32(value) + " WHERE OpholdID=" + OpholdID);
+                    return OpholdID + " er opdateret med ny bil: " + value;
+                }
+                catch (Exception)
+                {
+                    return "Der skete en fejl, det kunne være forkert input";
+                }
+            }
+            else if (option == "2")
+            {
+                string sql = "UPDATE Værkstedsophold SET VærkstedsopholdDato=";
+                try
+                {
+                    DBController.CRUD(sql + "'" + value + "'" + " WHERE OpholdID=" + OpholdID);
+                    return OpholdID + " er opdateret med ny værkstedsopholds dato: " + value;
+                }
+                catch (Exception)
+                {
+                    return "Der skete en fejl, det kunne være forkert input";
+                }
+            }
+            else
+            {
+                return "Ikke en valid mulighed, prøv igen.";
+            }
         }
 
         public static string ShowOphold(int OpholdID)
