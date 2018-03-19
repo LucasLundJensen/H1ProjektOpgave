@@ -38,6 +38,12 @@ namespace H1ProjektOpgave.Menus
                 try
                 {
 
+                    if (string.IsNullOrEmpty(regNr) || string.IsNullOrEmpty(maerke) || string.IsNullOrEmpty(aargang) || string.IsNullOrEmpty(km) || string.IsNullOrEmpty(brandstofstype))
+                    {
+                        Console.WriteLine("Et felt er tomt, prøv igen.");
+                        MainMenu.ReturnMenu();
+                    }
+
                     if (string.IsNullOrEmpty(kundeid))
                     {
                         kundeid = "1";
@@ -49,7 +55,7 @@ namespace H1ProjektOpgave.Menus
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Sket en fejl med input, prøv igen.");
+                    Console.WriteLine("Fejl i input, prøv igen.");
                     MainMenu.ReturnMenu();
                 }
             }

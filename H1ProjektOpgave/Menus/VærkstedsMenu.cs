@@ -26,8 +26,17 @@ namespace H1ProjektOpgave.Menus
 
                 try
                 {
-                    Console.WriteLine(Service.Create(Convert.ToInt32(bilid), opholdsdato));
-                    MainMenu.ReturnMenu();
+
+                    if (string.IsNullOrEmpty(bilid) || string.IsNullOrEmpty(opholdsdato))
+                    {
+                        Console.WriteLine("Et eller flere felter er tomme, prøv igen.");
+                        MainMenu.ReturnMenu();
+                    }
+                    else
+                    {
+                        Console.WriteLine(Service.Create(Convert.ToInt32(bilid), opholdsdato));
+                        MainMenu.ReturnMenu();
+                    }
                 }
                 catch (Exception)
                 {
