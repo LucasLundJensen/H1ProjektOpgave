@@ -1,4 +1,4 @@
-<style></style></head><body id="preview">
+</head><body id="preview">
 <h1><a id="Lucas_Lund_Jensen__Projekt_Opgave_0"></a>Lucas Lund Jensen - Projekt Opgave</h1>
 <p>Projekt opgaven handler om et autoværksted som har deres kunder og biler, det skal være muligt at kunne:</p>
 <ul>
