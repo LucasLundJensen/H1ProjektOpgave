@@ -85,7 +85,7 @@ namespace H1ProjektOpgave.Menus
                     Console.WriteLine(Biler.Delete(Convert.ToInt32(bilid)));
                     MainMenu.ReturnMenu();
                 }
-                catch (Exception )
+                catch (Exception)
                 {
                     Console.WriteLine("Der skete en fejl, prøv igen.");
                     MainMenu.ReturnMenu();

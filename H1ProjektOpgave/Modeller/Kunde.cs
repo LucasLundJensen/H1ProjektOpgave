@@ -59,9 +59,9 @@ namespace H1ProjektOpgave
                 DBController.CRUD(Creation);
                 return Convert.ToString("Kunde " + Fornavn + " " + Efternavn + " er nu oprettet.");
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                return Convert.ToString("Error: " + e);
+                return "Fejl i input, prøv igen";
             }
 
         }
@@ -79,7 +79,7 @@ namespace H1ProjektOpgave
             }
             catch (Exception)
             {
-                return Convert.ToString("Bruger blev ikke fundet");
+                return "Bruger blev ikke fundet";
             }
         }
 

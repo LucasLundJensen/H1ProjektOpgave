@@ -71,7 +71,7 @@ namespace H1ProjektOpgave.Modeller
             }
             else if (option == "4")
             {
-                Console.WriteLine("1. Kundeoversigt \n2. Bil Oversigt");
+                Console.WriteLine("\n1. Kundeoversigt \n2. Bil Oversigt");
                 string oversigtOption = Console.ReadLine();
 
                 if (oversigtOption == "1")
