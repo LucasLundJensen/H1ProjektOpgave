@@ -53,15 +53,16 @@ namespace H1ProjektOpgave
         public static string Create(string Fornavn, string Efternavn, string Email)
         {
             DateTime Oprettelsesdato = DateTime.Now;
-            string Creation = ("INSERT INTO Kunde (Fornavn, Efternavn, Email, KundeOprettelsesdato) " + "Values('" + Fornavn + "', '" + Efternavn + "', '" + Email + "', '" + Oprettelsesdato + "');");
+            string sqlFormattedDate = Oprettelsesdato.ToString("yyyy-MM-dd HH:mm:ss.fff");
+            string Creation = ("INSERT INTO Kunde (Fornavn, Efternavn, Email, KundeOprettelsesdato) " + "Values('" + Fornavn + "', '" + Efternavn + "', '" + Email + "', '" + sqlFormattedDate + "');");
             try
             {
                 DBController.CRUD(Creation);
                 return Convert.ToString("Kunde " + Fornavn + " " + Efternavn + " er nu oprettet.");
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return "Fejl i input, prøv igen";
+                return Convert.ToString(e);
             }
 
         }
@@ -110,6 +111,7 @@ namespace H1ProjektOpgave
         {
             string sqlKunde = "SELECT * FROM Kunde ORDER BY Kunde.Efternavn DESC;";
             string sqlBil = "SELECT * FROM Biler;";
+            string sqlOphold = "SELECT * FROM Værkstedsophold;";
             if (Option == "Kundeoversigt")
             {
                 DataTable KundeTabel = DBController.Select(sqlKunde);
@@ -146,11 +148,29 @@ namespace H1ProjektOpgave
                         Aargang = BilTabel.Rows[i]["ModelÅrgang"].ToString(),
                         Km = Convert.ToInt32(BilTabel.Rows[i]["KmKørt"]),
                         BrandStofType = BilTabel.Rows[i]["Brændstofstype"].ToString(),
-
+                        BilOprettelsesDato = BilTabel.Rows[i]["BilOprettelsesDato"].ToString()
                     };
                     Biler = Biler + "\nBilID: " + nyBil.BilID + "\nRegisterings Nummer: " + nyBil.RegNR + "\nMærke: " + nyBil.Maerke + "\nÅrgang: " + nyBil.Aargang + "\nKilometer Kørt: " + nyBil.Km + "\nBrændstofs Type: " + nyBil.BrandStofType + "\n";
                 }
                 return Biler;
+            }
+            else if (Option == "værksted")
+            {
+                DataTable OpholdTabel = DBController.Select(sqlOphold);
+
+                string Ophold = string.Empty;
+
+                for (int i = 0; i < OpholdTabel.Rows.Count; i++)
+                {
+                    Modeller.Service nytOphold = new Modeller.Service()
+                    {
+                        OpholdID = Convert.ToInt32(OpholdTabel.Rows[i]["OpholdID"]),
+                        BilID_fk = Convert.ToInt32(OpholdTabel.Rows[i]["BilID_fk"]),
+                        VærkstedsopholdDato = Convert.ToString(OpholdTabel.Rows[i]["VærkstedsopholdDato"])
+                    };
+                    Ophold = Ophold + "\nOphold ID: " + nytOphold.OpholdID + "\nBilID: " + nytOphold.BilID_fk + "\nOprettelses Dato: " + nytOphold.VærkstedsopholdDato;
+                }
+                return Ophold;
             }
             else
             {

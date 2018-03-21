@@ -13,14 +13,14 @@ namespace H1ProjektOpgave.Menus
         {
             Console.Clear();
             Console.WriteLine("Du har nu følgende muligheder: \n");
-            Console.WriteLine("1. Opret Ophold \n2. Slet Ophold \n3. Vis Ophold \n4. Opdater Ophold ");
+            Console.WriteLine("1. Opret Ophold \n2. Slet Ophold \n3. Vis Ophold \n4. Opdater Ophold \n5. Opholds Oversigt ");
             string option = Console.ReadLine();
 
             if (option == "1")
             {
                 Console.Write("BilID: ");
                 string bilid = Console.ReadLine();
-
+                Console.WriteLine("Dato format: yyyy-MM-dd");
                 Console.WriteLine("Opholds Dato: ");
                 string opholdsdato = Console.ReadLine();
 
@@ -123,6 +123,11 @@ namespace H1ProjektOpgave.Menus
                     MainMenu.ReturnMenu();
                 }
 
+            }
+            else if (option == "5")
+            {
+                Console.WriteLine(Kunde.KundeOversigt("værksted"));
+                MainMenu.ReturnMenu();
             }
             else
             {

@@ -13,7 +13,7 @@ namespace H1ProjektOpgave.Menus
         {
             Console.Clear();
             Console.WriteLine("Du har nu følgende muligheder: \n");
-            Console.WriteLine("1. Opret Bil \n2. Vis Bil \n3. Slet Bil \n4. Opdater Bil ");
+            Console.WriteLine("1. Opret Bil \n2. Vis Bil \n3. Slet Bil \n4. Opdater Bil \n5. Biloversigt ");
             string option = Console.ReadLine();
 
             if (option == "1")
@@ -202,6 +202,11 @@ namespace H1ProjektOpgave.Menus
                 {
                     MainMenu.ReturnMenu();
                 }
+            }
+            else if (option == "5")
+            {
+                Console.WriteLine(Kunde.KundeOversigt("Biloversigt"));
+                MainMenu.ReturnMenu();
             }
             else
             {

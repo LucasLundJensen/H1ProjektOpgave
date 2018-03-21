@@ -71,24 +71,8 @@ namespace H1ProjektOpgave.Modeller
             }
             else if (option == "4")
             {
-                Console.WriteLine("\n1. Kundeoversigt \n2. Bil Oversigt");
-                string oversigtOption = Console.ReadLine();
-
-                if (oversigtOption == "1")
-                {
-                    Console.WriteLine(Kunde.KundeOversigt("Kundeoversigt"));
-                    MainMenu.ReturnMenu();
-                }
-                else if (oversigtOption == "2")
-                {
-                    Console.WriteLine(Kunde.KundeOversigt("Biloversigt"));
-                    MainMenu.ReturnMenu();
-                }
-                else
-                {
-                    Console.WriteLine("Ikke en gyldig valgmulighed");
-                    MainMenu.ReturnMenu();
-                }
+                Console.WriteLine(Kunde.KundeOversigt("Kundeoversigt"));
+                MainMenu.ReturnMenu();
             }
             else
             {

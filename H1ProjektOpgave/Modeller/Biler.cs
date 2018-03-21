@@ -57,10 +57,19 @@ namespace H1ProjektOpgave.Modeller
             set { bilID = value; }
         }
 
+        private string biloprettelsesdato;
+
+        public string BilOprettelsesDato
+        {
+            get { return biloprettelsesdato; }
+            set { biloprettelsesdato = value; }
+        }
+
         public static string Create(int RegNr, string Maerke, string Aargang, int Km, string Brandstofstype, int KundeID = 0)
         {
             DateTime BilOprettelsesDato = DateTime.Now;
-            string Creation = ("INSERT INTO Biler(RegNr, Mærke, Modelårgang, Kmkørt, Brændstofstype, EjesAf_fk, BilOprettelsesDato) " + "Values('" + RegNr + "', '" + Maerke + "', '" + Aargang + "', '" + Km + "', '" + Brandstofstype + "', '" + KundeID + "', '" + BilOprettelsesDato + "');");
+            string sqlFormattedDate = BilOprettelsesDato.ToString("yyyy-MM-dd HH:mm:ss.fff");
+            string Creation = ("INSERT INTO Biler(RegNr, Mærke, Modelårgang, Kmkørt, Brændstofstype, EjesAf_fk, BilOprettelsesDato) " + "Values('" + RegNr + "', '" + Maerke + "', '" + Aargang + "', '" + Km + "', '" + Brandstofstype + "', '" + KundeID + "', '" + sqlFormattedDate + "');");
             try
             {
                 DBController.CRUD(Creation);
