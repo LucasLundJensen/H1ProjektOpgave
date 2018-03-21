@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace H1ProjektOpgave.Menus
         {
             Console.Clear();
             Console.WriteLine("Du har nu følgende muligheder: \n");
-            Console.WriteLine("1. Opret Ophold \n2. Slet Ophold \n3. Vis Ophold \n4. Opdater Ophold \n5. Opholds Oversigt ");
+            Console.WriteLine("1. Opret Ophold \n2. Slet Ophold \n3. Vis Ophold \n4. Opdater Ophold \n5. Opholds Oversigt \n6. Opgaver i dag");
             string option = Console.ReadLine();
 
             if (option == "1")
@@ -127,6 +128,12 @@ namespace H1ProjektOpgave.Menus
             else if (option == "5")
             {
                 Console.WriteLine(Kunde.KundeOversigt("værksted"));
+                MainMenu.ReturnMenu();
+            }
+            else if (option == "6")
+            {
+                Console.WriteLine("Værksteds opgaver i dag: \n");
+                Console.WriteLine(Service.OpholdIdag());
                 MainMenu.ReturnMenu();
             }
             else

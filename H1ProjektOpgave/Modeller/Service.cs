@@ -115,9 +115,29 @@ namespace H1ProjektOpgave.Modeller
                     VærkstedsopholdDato = opholdDataTable.Rows[i]["VærkstedsopholdDato"].ToString(),
 
                 };
-                opholdData = opholdData + "OpholdID: " + nyService.OpholdID + "\nBil Ejer: " + nyService.BilID_fk + "\nVærksteds Ophold: " + nyService.VærkstedsopholdDato;
+                opholdData = opholdData + "OpholdID: " + nyService.OpholdID + "\nBil ID: " + nyService.BilID_fk + "\nVærksteds Ophold: " + nyService.VærkstedsopholdDato;
             }
             return opholdData;
+        }
+
+        public static string OpholdIdag()
+        {
+            string sql = "SELECT * FROM Værkstedsophold where VærkstedsopholdDato=CONVERT(date, SYSDATETIME())";
+            DataTable opholdDataTable = DBController.Select(sql);
+
+            string opholdString = string.Empty;
+
+            for (int i = 0; i < opholdDataTable.Rows.Count; i++)
+            {
+                Modeller.Service ophold = new Modeller.Service()
+                {
+                    OpholdID = Convert.ToInt32(opholdDataTable.Rows[i]["OpholdID"]),
+                    BilID_fk = Convert.ToInt32(opholdDataTable.Rows[i]["BilID_fk"]),
+                    VærkstedsopholdDato = opholdDataTable.Rows[i]["VærkstedsopholdDato"].ToString(),
+                };
+                opholdString = opholdString + "OpholdID: " + ophold.OpholdID + "\nBil Ejer: " + ophold.BilID_fk + "\nVærksteds Ophold: " + ophold.VærkstedsopholdDato;
+            }
+            return opholdString;
         }
     }
 }
